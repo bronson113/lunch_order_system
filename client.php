@@ -8,8 +8,7 @@
   $mysqli->select_db("orderhistory");
   $sql = "INSERT INTO everyonesorder (order_date, seatNumber, orders) VALUES ('$_GET[order_date]','$_GET[seatNumber]','$_GET[orders]')";
   if (!$mysqli->query($sql)){
-    echo "no 2";
-    die("error:".mysqli_error($con));
+    printf("error: %s\n", $mysqli->error);
   }
   else echo "added";
   $mysqli->close();
